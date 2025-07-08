@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class Bus implements Reservable {
     Integer busId;
+//    String userId;
     String orgin;
     String destination;
     String date;
@@ -91,7 +92,7 @@ public class Bus implements Reservable {
     }
     @Override
     public boolean checkAvailability(Integer seatCountFromUser){
-        if(seatCountFromUser<=availableSeats){
+        if(seatCountFromUser<=getAvailableSeats()){
             System.out.println(seatCountFromUser+ "seats are available");
             return true;
 
@@ -109,7 +110,7 @@ public class Bus implements Reservable {
             System.out.println("Your seats are booked");
         }
         else{
-            System.out.println("Do you want to release the seats? Y/N");
+            System.out.println("Do you want to cancel the seats? Y/N");
             String releaseChoice=scanner.nextLine();
             if(releaseChoice.equals("Y")){
                 releaseSeat();
