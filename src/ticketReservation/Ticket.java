@@ -1,5 +1,4 @@
 package ticketReservation;
-
 public class Ticket extends TicketBase {
     double price;
     public Double getPrice(){
@@ -17,6 +16,7 @@ public class Ticket extends TicketBase {
         this.userId=userId;
         this.busId=busId;
         this.seatNumber=seatNumber;
+
     }
 
     @Override

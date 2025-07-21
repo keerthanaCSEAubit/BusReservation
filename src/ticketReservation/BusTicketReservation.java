@@ -19,48 +19,50 @@ public class BusTicketReservation {
     Admin admin = new Admin();
 
     public  void first(){
+        addingUserData();
         Scanner mainScanner = new Scanner(System.in);
         System.out.println("BUS TICKET RESERVATION");
         System.out.println("LOGIN AS: ");
         System.out.println("1). ADMIN");
         System.out.println("2). USER");
         int userSelectionForLogin = mainScanner.nextInt();
-        while(true){
             switch(userSelectionForLogin) {
                 case 1: {
                     System.out.println("Enter the password: ");
                     Scanner scanner = new Scanner(System.in);
                     String password = scanner.nextLine();
                     if (password.equals("12qwaszx")) {
-                        System.out.println("1). Add Bus: ");
-                        System.out.println("2). Remove Bus: ");
-                        System.out.println("3). View All UserNames: ");
-                        System.out.println("4). View All Details");
-                        int adminChoice = scanner.nextInt();
-                        if (adminChoice == 1) {
-                            admin.addBus(busData);
-                            System.out.println(busData);
-                        } else if (adminChoice == 2) {
-                            System.out.print("Enter Bus ID to remove: ");
-                            int id = scanner.nextInt();
-                            admin.removeBus(busData, id);
-                            System.out.println(busData);
-                        }else if(adminChoice==3){
-                            addingUserData();
-                            for(User names:userData) {
-                                String userNames=names.getName();
-                                System.out.println(userNames);
+                        while (true) {
+                            System.out.println("1). Add Bus: ");
+                            System.out.println("2). Remove Bus: ");
+                            System.out.println("3). View All UserNames: ");
+                            System.out.println("4). View All Details");
+                            int adminChoice = scanner.nextInt();
+                            if (adminChoice == 1) {
+                                admin.addBus(busData);
+                                System.out.println(busData);
+                            } else if (adminChoice == 2) {
+                                System.out.print("Enter Bus ID to remove: ");
+                                int id = scanner.nextInt();
+                                admin.removeBus(busData, id);
+                                System.out.println(busData);
+                            } else if (adminChoice == 3) {
+
+                                for (User names : userData) {
+                                    String userNames = names.getName();
+                                    System.out.println(userNames);
+                                }
+                            } else if (adminChoice == 4) {
+                                System.out.println(userData);
                             }
                         }
-                        else if (adminChoice == 4) {
-                           System.out.println(userData);
+                    }
+                  else{
+                            System.out.println("Enter the correct password!");
                         }
+                        break;
                     }
-                  else {
-                        System.out.println("Enter the correct password!");
-                    }
-                    break;
-                }
+
                 case 2: {
                     Scanner scanner = new Scanner(System.in);
                     Double id=Math.random();
@@ -90,7 +92,7 @@ public class BusTicketReservation {
                 }
             }
         }
-    }
+
     public Map<String, Map<String, List<Ticket>>> generatingIdByData(List<Ticket> ticket, Integer busNumberFromUser, Integer personId, Map<String, List<Ticket>> mapForBusAndTicket)
     {
         List<Ticket> ticketData = new ArrayList<>();

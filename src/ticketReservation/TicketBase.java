@@ -1,10 +1,13 @@
 package ticketReservation;
 
 public abstract class TicketBase {
-    Integer ticketId;
-    Integer userId;
-    Integer busId;
-    Integer seatNumber;
+    public Integer ticketId;
+    public Integer userId;
+    public Integer busId;
+    public Integer seatNumber;
     public abstract Double calculatePrice();
     public abstract void printDetails();
-}
+//    public void test(){
+
+    }
+

@@ -7,7 +7,7 @@ import java.util.*;
 public class Admin extends Person{
     Map<String, Object> personAndBusDetails = new HashMap();
     List<Bus> busData =new ArrayList<>();
-    public void addBus(List busData) {
+    public void addBus(List<Bus> busData) {
         Scanner sc=new Scanner(System.in);
         System.out.print("Enter Bus ID: ");
         int id = sc.nextInt();
@@ -25,28 +25,19 @@ public class Admin extends Person{
     }
 
     public void removeBus(List<Bus> busData, int busId) {
-        for(int i=0; i<busData.size(); i++){
-            Bus bus=busData.get(i);
-            if(bus.getBusId()==busId){
+        for(int i=0; i<busData.size(); i++) {
+            Bus bus = busData.get(i);
+            if (bus.getBusId() == busId) {
                 busData.remove(i);
                 i--;
-                break;
-            }
-            else{
-                System.out.println("Invalid Bus Number");
+                return;
             }
         }
-    }
+        System.out.println("Invalid Bus Number");
+        }
 
-    public void viewAllUsers(Map userTickets) {
-        System.out.println("All Users and their Tickets:");
-        Iterator it = userTickets.keySet().iterator();
-        while (it.hasNext()) {
-            String userId = (String) it.next();
-            List tickets = (List) userTickets.get(userId);
-            System.out.println("User: " + userId + ", Tickets: " + tickets);
-        }
-    }
+
+
 
     public void getDetails() {
         System.out.println("Admin Details: ");

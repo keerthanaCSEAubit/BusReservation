@@ -13,13 +13,13 @@ public class Bus implements Reservable {
     String date;
     Integer totalSeats;
     Integer availableSeats;
-    public Bus(){
-        this.busId=busId;
-        this.orgin=orgin;
-        this.destination=destination;
-        this.date=date;
-        this.totalSeats=totalSeats;
-    }
+//    public Bus(){
+//        this.busId=busId;
+//        this.orgin=orgin;
+//        this.destination=destination;
+//        this.date=date;
+//        this.totalSeats=totalSeats;
+//    }
 
     public Bus(Integer busId, String orgin, String destination, String date, Integer totalSeats) {
         this.busId = busId;
